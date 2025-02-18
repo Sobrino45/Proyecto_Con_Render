@@ -1,7 +1,8 @@
 FROM openjdk:17-jdk-slim AS build
 WORKDIR /app
-COPY . .
-RUN ./mvnw clean package -DskipTests
+COPY . . 
+RUN chmod +x mvnw  # 🔹 Dar permisos de ejecución a mvnw
+RUN ./mvnw clean package -DskipTests  
 
 FROM openjdk:17-jdk-slim
 WORKDIR /app
